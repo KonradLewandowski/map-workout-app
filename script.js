@@ -68,6 +68,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+let deleteWorkoutButton = '';
 
 class App {
   #map;
@@ -221,7 +222,10 @@ class App {
   _renderWorkout(workout) {
     let html = `
       <li class="workout workout--${workout.type}" data-id="${workout.id}">
-        <h2 class="workout__title">${workout.description}</h2>
+      <div class='header-container'>
+      <h2 class="workout__title">${workout.description}</h2>
+      <div class='delete-workout'>❌</div>
+      </div>
         <div class="workout__details">
           <span class="workout__icon">${
             workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
@@ -267,6 +271,7 @@ class App {
       `;
 
     form.insertAdjacentHTML('afterend', html);
+    this._createHandlers();
   }
 
   _moveToPopup(e) {
@@ -281,6 +286,7 @@ class App {
       work => work.id === workoutEl.dataset.id
     );
 
+    if (!workout?.coords) return;
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
       pan: {
@@ -303,6 +309,27 @@ class App {
     this.#workouts.forEach(work => {
       this._renderWorkout(work);
     });
+  }
+
+  _createHandlers() {
+    deleteWorkoutButton = document.querySelectorAll('.delete-workout');
+    deleteWorkoutButton.forEach(el =>
+      el.addEventListener('click', e => {
+        e.preventDefault();
+        const workout = e.target.closest('.workout');
+        this._deleteWorkout(workout.dataset.id);
+      })
+    );
+  }
+
+  _deleteWorkout(id) {
+    const workout = this.#workouts.find(work => work.id === id);
+    const workoutIndex = this.#workouts.indexOf(workout);
+
+    this.#workouts = this.#workouts.slice(1, workoutIndex);
+
+    this._setLocalStorage();
+    location.reload();
   }
 
   reset() {

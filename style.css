@@ -24,23 +24,33 @@ body {
   font-family: 'Manrope', sans-serif;
   color: var(--color-light--2);
   font-weight: 400;
-  line-height: 1.6;
-  height: 100vh;
-  overscroll-behavior-y: none;
-
   background-color: #fff;
-
-  display: flex;
-  justify-content: center;
 }
 
 .bg-container {
+  margin: 10vh auto;
+  display: grid;
+  grid-template-columns: minmax(350px, 33vw) 1fr;
+  padding: 1rem;
   max-width: 1440px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: center;
+}
+@media only screen and (max-width: 700px) {
+  .bg-container {
+    margin: 0;
+    font-size: 50% !important;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* MAP */
+.map-container {
+  flex-grow: 1;
+}
+#map {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-light--1);
 }
 
 /* GENERAL */
@@ -51,10 +61,8 @@ a:visited {
 
 /* SIDEBAR */
 .sidebar {
-  max-width: 500px;
   max-height: 600px;
   background-color: var(--color-dark--1);
-  padding: 3rem 5rem 4rem 5rem;
   display: flex;
   flex-direction: column;
 }
@@ -77,15 +85,18 @@ a:visited {
 }
 
 .workout {
+  max-width: 90%;
+  min-width: 340px;
   background-color: var(--color-dark--2);
 
   padding: 1.5rem 2.25rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0.75rem 1.5rem;
+  margin: 10px auto;
+  /* gap: 0.75rem 1.5rem; */
 }
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
@@ -121,6 +132,16 @@ a:visited {
   color: var(--color-light--1);
   text-transform: uppercase;
   font-weight: 800;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.delete-workout:hover {
+  transform: scale(1.1);
 }
 
 .form {
@@ -184,15 +205,6 @@ a:visited {
   font-size: 1.3rem;
   text-align: center;
   color: var(--color-light--2);
-}
-
-/* MAP */
-#map {
-  min-width: 50vw;
-  flex: 1;
-  min-height: 500px;
-  max-height: 600px;
-  background-color: var(--color-light--1);
 }
 
 /* Popup width is defined in JS using options */
