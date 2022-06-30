@@ -328,7 +328,6 @@ class App {
     });
 
     this.#workouts = filtered;
-    console.log(this.#workouts);
     this._setLocalStorage();
     location.reload();
   }
