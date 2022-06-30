@@ -323,11 +323,12 @@ class App {
   }
 
   _deleteWorkout(id) {
-    const workout = this.#workouts.find(work => work.id === id);
-    const workoutIndex = this.#workouts.indexOf(workout);
+    const filtered = this.#workouts.filter(el => {
+      return el.id != id;
+    });
 
-    this.#workouts = this.#workouts.slice(1, workoutIndex);
-
+    this.#workouts = filtered;
+    console.log(this.#workouts);
     this._setLocalStorage();
     location.reload();
   }
