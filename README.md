@@ -16,4 +16,4 @@ A short video shows how it works ([ https://youtu.be/lrGDF5o0JYM](https://youtu.
 
 ## Map Workout Application
 
-Very simply app which shows the capabilities of the leaflet library. It's works with external API.
+Very simply app which shows the capabilities of the leaflet library. It works with external API.
