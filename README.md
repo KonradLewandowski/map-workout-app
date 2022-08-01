@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 # Getting Started with Map Workout App
-=======
-| Netlify link: https://map-app-kl.netlify.app/
-| YouTube link: https://youtu.be/lrGDF5o0JYM
-
->>>>>>> 6bc147854d3b15c418bf276d904f52e1e8f48d17
 
 Built with: 💥JavaScript, 💥CSS, 💥HTML and libraries 💥Open street map and 💥Leafler library
 
