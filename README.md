@@ -2,6 +2,10 @@
 
 Built with: 💥JavaScript, 💥CSS, 💥HTML and libraries 💥Open street map and 💥Leafler library
 
+## How to run?
+
+Open with live server index.html
+
 ## Live version
 
 You can try live version on the server ( [https://map-app-kl.netlify.app/](https://map-app-kl.netlify.app/)).
