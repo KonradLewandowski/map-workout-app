@@ -1,6 +1,6 @@
 # Getting Started with Map Workout App
 
-Built with: 💥JavaScript, 💥CSS, 💥HTML and libraries 💥Open street map and 💥Leafler library
+Built with: 💥JavaScript, 💥CSS, 💥HTML and libraries 💥Open street map and 💥Leaflet library
 
 ## How to run?
 
