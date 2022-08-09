@@ -229,3 +229,17 @@ a:visited {
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
 }
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  height: 100px;
+  background-color: var(--color-dark--1);
+}
+
+.links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
